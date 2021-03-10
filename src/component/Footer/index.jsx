@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import qs from 'querystring'
 
-import './index.scss'
+// import './index.scss'
 
 class Footer extends Component {
   constructor(props){
