@@ -38,8 +38,8 @@ class Header extends Component {
     return (
       // 1. ref采用回调形式获取该dom节点，react会执行该函数，采用箭头函数，this指向实例对象，因此实例中该属性获取该节点
       // 2.关于事件传参不能直接使用{this.changeDone(id)}，在react中该方法会被直接调用，
-      //   可以通过箭头函数方法{(e)=>{this.changeDone(e,item.id)}，
-      //   获取使用函数柯里化return该方法回去
+      //   2.1可以通过箭头函数方法{(e)=>{this.changeDone(e,item.id)}，
+      //   2.2获取使用函数柯里化return该方法回去
       <div>
         <input
           type="text"
