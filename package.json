@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "react-todos",
+=======
+  "name": "my-react",
+>>>>>>> b395f0a6ba2313dcfb6efa4058f7b76e747e791a
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +12,10 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+<<<<<<< HEAD
+=======
+    "react-router-dom": "^5.2.0",
+>>>>>>> b395f0a6ba2313dcfb6efa4058f7b76e747e791a
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
