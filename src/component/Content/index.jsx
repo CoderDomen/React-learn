@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-
 class Content extends Component {
-  constructor() {
-    super();
-    //this指向实例对象
-    this.shili = { all: "yes" };
+  constructor(props) {
+    super(props);
+    console.log(props); //路由组件固定只有三个属性
   }
+
 
   //这里定义的属性指向实例对象，同constructor中属性
   state = {
@@ -22,7 +21,7 @@ class Content extends Component {
       // ul标签下使用js需要加{}
       <ul>
         {name.map(item => (
-          <li key={item.id} >
+          <li key={item.id}>
             {"firstname:" + item.firstname} --- {"lastname:" + item.lastname}
           </li>
         ))}
