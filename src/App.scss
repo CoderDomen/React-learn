@@ -1,0 +1,18 @@
+.btnRout {
+  width: 50%;
+  text-decoration: none;
+  display: block;
+  margin: 10px;
+  background-color: #bbb;
+  color: white;
+  border: solid 1px #ccc;
+  padding: 10px;
+  &.short{
+    width: 35%;
+  }  
+  // Navlink标签特有属性，触发时拥有该类样式
+  &.active {
+    color: red;
+  }
+
+}

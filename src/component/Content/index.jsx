@@ -1,31 +1,24 @@
 import React, { Component } from "react";
-
+import { NavLink, Redirect, Route } from "react-router-dom";
+import Car from "./Content_Car";
+import New from "./Content_New";
 class Content extends Component {
   constructor(props) {
     super(props);
     console.log(props); //路由组件固定只有三个属性
   }
 
-
-  //这里定义的属性指向实例对象，同constructor中属性
-  state = {
-    name: [
-      { id: "01", firstname: "zhang", lastname: "gui" },
-      { id: "02", firstname: "li", lastname: "hong" }
-    ]
-  };
-
   render() {
-    let { name } = this.state;
     return (
-      // ul标签下使用js需要加{}
-      <ul>
-        {name.map(item => (
-          <li key={item.id}>
-            {"firstname:" + item.firstname} --- {"lastname:" + item.lastname}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <NavLink className="btnRout short" to="/content/car">Car</NavLink>
+        <NavLink className="btnRout short" to="/content/new">New</NavLink>
+        <Redirect to="/content/car"></Redirect>
+
+        <Route path="/content/car" component={Car}></Route>
+        <Route path="/content/new" component={New}></Route>
+        
+      </div>
     );
   }
 }

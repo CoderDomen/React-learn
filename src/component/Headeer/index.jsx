@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -7,24 +8,33 @@ class Header extends Component {
     // this.test()
   }
 
-
   //1. 这里定义的属性在实例对象上，同时必须使用箭头函数的形式（this指向取决于定义上下文位置），即内部的this指向实例组件；若是使用普通函数，this指向调用者(我们并未主动触发----使用btnClick()，所以此时的调用者为window) class类中方法默认使用严格模式，this指向undefind
   //2.ref使用字符串形式从this.refs获取 ，    //ref使用回调函数方法直接从this实例组件获取
   //3. 修改状态必须使用setState改变才能达到响应式页面效果
+
+  // test() {
+  //   console.log(this);  //这里的this指向触发者，即在constructor中的this（为组件实例）
+  // }
+  // btnClick(){
+  //   console.log(this);  //这里的this理应指向触发者window，但严格模式下指向了undefind
+  // }
   btnClick = () => {
     const { inp } = this;
     alert(inp.value);
   };
-  // btnClick(){
-  //   console.log(this);  //这里的this理应指向触发者window，但严格模式下指向了undefind
-  // }
-  test() {
-    console.log(this);  //这里的this指向触发者，即在constructor中的this（为组件实例）
-  }
-
 
   changeDone = (e, id) => {
     this.props.changeDone(e, id);
+  };
+
+  routesjump = () => {
+    console.log("routesjump");
+    let myInfo = { name: "lihong", age: "88" };
+    this.props.history.push(`/footer?name=${myInfo.name}&age=${myInfo.age}`);
+  };
+
+  routesback = () => {
+    this.props.history.goBack();
   };
 
   // 1. ref采用回调形式获取该dom节点，react会执行该函数，采用箭头函数，this指向实例对象，因此实例中该属性获取该节点
@@ -56,9 +66,16 @@ class Header extends Component {
             </li>
           ))}
         </ul>
+
+        <button onClick={this.routesjump}>
+          一般组件，使用withRouter让其可以使用路由组件的history的API，点击使用编程路由导航进行跳转
+        </button> 
+        <div style={{margin:"50px"}}></div>
+        <button onClick={this.routesback}>后退</button>
       </div>
     );
   }
 }
 
-export default Header;
+// export default Header;
+export default withRouter(Header);
